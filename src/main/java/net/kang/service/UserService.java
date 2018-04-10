@@ -42,7 +42,7 @@ public class UserService {
 				if(expTime < currentTime.getTime()/1000) {
 					throw new ServletException("유효 시간이 만료되었습니다. 다시 로그인을 진행하시길 바랍니다.");
 				}
-				return userRepository.findByUserId((String) result.get("userId")).get();
+				return userRepository.findByUserId((String) result.get("userId")).orElse(new User());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -2,6 +2,7 @@ package net.kang.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class GuestRestController {
 	@PostMapping("login")
 	public ResponseEntity<?> login(HttpServletResponse response, @RequestBody LoginForm loginForm) throws IOException{
 		User loginUser=userService.login(loginForm.getUserId(), loginForm.getPassword());
-		if(loginUser==null) return new ResponseEntity<String>("", HttpStatus.UNAUTHORIZED);
+		if(loginUser==null) return new ResponseEntity<ServletException>(new ServletException("존재하지 않은 사용자입니다."), HttpStatus.UNAUTHORIZED);
 		return new ResponseEntity<String>(tokenAuthenticationService.addAuthentication(response, loginUser), HttpStatus.OK);
 	}
 }

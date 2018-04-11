@@ -24,7 +24,7 @@ public class UserRestController {
 	@Autowired UserService userService;
 
 	@GetMapping("findByToken/{token}")
-	public ResponseEntity<?> welcomeMessage(@PathVariable("token") String token, HttpServletResponse response) throws UnsupportedEncodingException, ServletException{
+	public ResponseEntity<?> tokenChecking(@PathVariable("token") String token, HttpServletResponse response) throws UnsupportedEncodingException, ServletException{
 		User user = userService.findByToken(token);
 		if(user.equals(new User())) {
 			return new ResponseEntity<ServletException>(new ServletException("토큰이 무효합니다."), HttpStatus.UNAUTHORIZED);

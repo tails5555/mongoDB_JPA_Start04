@@ -1,8 +1,6 @@
 package net.kang.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.kang.domain.OutputMessage;
 import net.kang.domain.User;
-import net.kang.service.OutputMessageService;
 import net.kang.service.UserService;
 
 @RestController
@@ -26,14 +22,6 @@ import net.kang.service.UserService;
 @RequestMapping("user")
 public class UserRestController {
 	@Autowired UserService userService;
-	@Autowired OutputMessageService outputMessageService;
-	@GetMapping("message/findAll")
-	public ResponseEntity<List<OutputMessage>> findAll(){
-		List<OutputMessage> outputMessageList=outputMessageService.findAll();
-		if(outputMessageList.isEmpty()) {
-			return new ResponseEntity<List<OutputMessage>>(new ArrayList<OutputMessage>(), HttpStatus.NO_CONTENT);
-		}else return new ResponseEntity<List<OutputMessage>>(outputMessageList, HttpStatus.OK);
-	}
 
 	@GetMapping("findByToken/{token}")
 	public ResponseEntity<?> welcomeMessage(@PathVariable("token") String token, HttpServletResponse response) throws UnsupportedEncodingException, ServletException{

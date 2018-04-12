@@ -16,7 +16,7 @@ public class OutputMessage {
 	@Id
 	String id;
 
-	@DBRef(db="messenger_example", lazy=false)
+	@DBRef(db="mesenger_example_react", lazy=false)
 	User from;
 
 	String message;

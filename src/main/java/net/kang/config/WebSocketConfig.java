@@ -17,7 +17,6 @@ public class WebSocketConfig implements WebSocketConfigurer{
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(echoHandler, "/echo");
-		registry.addHandler(echoHandler, "/chatting/echo").withSockJS();
+		registry.addHandler(echoHandler, "/echo").setAllowedOrigins("*").withSockJS(); // WebSocket 중에서 SockJS를 사용할 수 있도록 설정을 하는 문장.
 	}
 }

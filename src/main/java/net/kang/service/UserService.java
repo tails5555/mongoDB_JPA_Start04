@@ -20,7 +20,7 @@ import net.kang.util.Encryption;
 @Service
 public class UserService {
 	@Autowired UserRepository userRepository;
-	public User login(String userId, String password) {
+	public User login(String userId, String password) { // 로그인 관련 함수
 		User tempUser=userRepository.findByUserId(userId).orElse(new User());
 		if(tempUser.equals(new User())) return null;
 		String pw=Encryption.encrypt(password, Encryption.MD5);
@@ -28,7 +28,7 @@ public class UserService {
 		return tempUser;
 	}
 
-	public User findByToken(String token) throws UnsupportedEncodingException, ServletException {
+	public User findByToken(String token) throws UnsupportedEncodingException, ServletException { // Token을 통해 사용자를 확인할 때 쓰는 함수
 		User findUser = null;
 		if(token!="" && token!=null) {
 	        String[] split_string = token.split("\\.");

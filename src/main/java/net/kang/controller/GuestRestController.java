@@ -25,7 +25,7 @@ import net.kang.service.UserService;
 public class GuestRestController {
 	@Autowired UserService userService;
 	@Autowired TokenAuthenticationService tokenAuthenticationService;
-	@PostMapping("login")
+	@PostMapping("login") // Login 함수를 이용해서 사용자가 Messenger에 접근할 수 있도록 하였음.
 	public ResponseEntity<?> login(HttpServletResponse response, @RequestBody LoginForm loginForm) throws IOException{
 		User loginUser=userService.login(loginForm.getUserId(), loginForm.getPassword());
 		if(loginUser==null) return new ResponseEntity<ServletException>(new ServletException("존재하지 않은 사용자입니다."), HttpStatus.UNAUTHORIZED);

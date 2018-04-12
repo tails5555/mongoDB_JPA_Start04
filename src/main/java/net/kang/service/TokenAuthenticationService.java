@@ -17,9 +17,9 @@ import net.kang.repository.UserRepository;
 @Service
 public class TokenAuthenticationService {
 	private long EXPIRATIONTIME=1000*60*60; // 1시간
-	private String secret="secretkey";
+	private String secret="secretkey"; // ScrectKey에 대해 임시로 secretkey로 설정.
 	@Autowired UserRepository userRepository;
-	public String addAuthentication(HttpServletResponse response, User user) throws IOException {
+	public String addAuthentication(HttpServletResponse response, User user) throws IOException { // 로그인을 진행하고 난 후에 JWT Token을 반환한다.
 		Claims claimList=Jwts.claims();
 		claimList.put("userId", user.getUserId());
 		claimList.put("name", user.getName());

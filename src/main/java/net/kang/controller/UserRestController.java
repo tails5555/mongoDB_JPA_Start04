@@ -23,7 +23,7 @@ import net.kang.service.UserService;
 public class UserRestController {
 	@Autowired UserService userService;
 
-	@GetMapping("findByToken/{token}")
+	@GetMapping("findByToken/{token}") // 현재 User의 Token을 받아서 유효성을 확인하기 위한 함수로 작성.
 	public ResponseEntity<?> tokenChecking(@PathVariable("token") String token, HttpServletResponse response) throws UnsupportedEncodingException, ServletException{
 		User user = userService.findByToken(token);
 		if(user.equals(new User())) {

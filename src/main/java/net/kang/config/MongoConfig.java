@@ -17,7 +17,7 @@ import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
 @Configuration
-public class MongoConfig extends AbstractMongoConfiguration{
+public class MongoConfig extends AbstractMongoConfiguration{ // MongoDB 연결 Configuration 클래스
 
     @Value("${spring.data.mongodb.host}")
     private String mongoHost;

@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Document(collection="user")
-public class User {
+public class User { // User에서 아이디와 비밀번호를 새로 추가하였다.
 	@Id
 	String id;
 	String userId;

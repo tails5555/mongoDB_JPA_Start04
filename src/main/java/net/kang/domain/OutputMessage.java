@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Document(collection="outputmessage")
-public class OutputMessage {
+public class OutputMessage { // 지난 번에 OutputMessage와 같다.
 	@Id
 	String id;
 

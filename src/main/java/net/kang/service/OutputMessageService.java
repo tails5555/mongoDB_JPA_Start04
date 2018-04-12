@@ -16,10 +16,10 @@ import net.kang.repository.UserRepository;
 public class OutputMessageService {
 	@Autowired UserRepository userRepository;
 	@Autowired OutputMessageRepository outputMessageRepository;
-	public List<OutputMessage> findAll(){
+	public List<OutputMessage> findAll(){ // 모든 채팅 내용 반환
 		return outputMessageRepository.findAll();
 	}
-	public boolean insert(Message message, String topic) {
+	public boolean insert(Message message, String topic) { // 채팅 내용 추가
 		OutputMessage newMessage=new OutputMessage();
 		Optional<User> user=userRepository.findByUserId(message.getFrom());
 		User realUser=user.orElse(new User());
@@ -31,7 +31,7 @@ public class OutputMessageService {
 		outputMessageRepository.insert(newMessage);
 		return true;
 	}
-	public OutputMessage findTopByOrderByCurrentTimeDesc() {
+	public OutputMessage findTopByOrderByCurrentTimeDesc() { // 채팅 내용 중에서 최신 내용들을 불러옴
 		return outputMessageRepository.findTopByOrderByCurrentTimeDesc();
 	}
 }

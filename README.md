@@ -1,4 +1,4 @@
 # mongoDB_JPA_Start04
 ReactJS + Spring Data MongoDB + WebSocket + JWT Token
 * * *
-강의 자료는 `src > doc`에 내일 오후 이내로 완성해서 올리겠습니다.
+스터디 자료는 `src > doc`에 올렸습니다. 같이 읽으시면 좋습니다.

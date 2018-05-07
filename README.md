@@ -18,7 +18,7 @@ Spring Data MongoDB + JSP + WebSocket(SockJS EchoHandler) 간단한 채팅 메�
 
 ```
 <dependencies>
-	<!-- 1. Spring Boot Starter -->
+	<!-- 1. Spring Web MVC Starter -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-web</artifactId>
